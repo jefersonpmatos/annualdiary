@@ -3,14 +3,20 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
+const baseURL =
+  process.env.BETTER_AUTH_URL ??
+  process.env.NEXT_PUBLIC_BASE_URL ??
+  "http://localhost:3000";
+
 export const auth = betterAuth({
+  baseURL,
   database: prismaAdapter(prisma, {
     provider: "postgresql",
   }),
 
   trustedOrigins: [
+    baseURL,
     "https://annualdiary.onrender.com",
-    "http://localhost:3000",
     "https://annualdiary.vercel.app",
   ],
   account: {
