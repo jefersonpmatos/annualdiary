@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Annual Diary
 
-## Getting Started
+A simple way to track your mood throughout the year.
 
-First, run the development server:
+Annual Diary is a personal diary focused on visualizing how your mood changes over time. Instead of writing long journal entries, you record how you felt each day and build a visual representation of your year.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The project was built as a fullstack application to explore authentication, data persistence, server-side rendering and the relationship between a simple UI and a relational data model.
+
+## ✨ Features
+
+- 📅 Daily mood tracking
+- 🎨 Visual representation of your year
+- 🔐 User authentication
+- 💾 Persistent data storage
+- 📱 Responsive interface
+- ⚡ Server-side rendering
+- 🗄️ Relational database with Prisma
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+
+### Backend & Data
+
+- Next.js
+- Prisma
+- PostgreSQL
+
+### Tooling
+
+- ESLint
+- Yarn
+- Vercel
+
+## 🧠 Why I Built It
+
+Annual Diary started from a simple idea: what if you could look at an entire year and instantly understand how you felt throughout it?
+
+The project was also an opportunity to work on a complete application instead of focusing exclusively on the frontend.
+
+Some of the things explored during development:
+
+- Designing the database around users and daily records
+- Handling authentication and protected data
+- Keeping the UI simple while making the data meaningful
+- Structuring a Next.js application around server and client responsibilities
+- Persisting and retrieving user-specific data
+- Building a responsive interface without unnecessary complexity
+
+## 🏗️ Architecture
+
+The application is built with Next.js and follows a fullstack approach, keeping the frontend, server logic and database integration within the same project.
+
+```text
+┌─────────────────────┐
+│       Next.js       │
+│                     │
+│  UI + Server Logic  │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│       Prisma        │
+│                     │
+│   Database Access   │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│     PostgreSQL      │
+│                     │
+│ Users / Diary Data  │
+└─────────────────────┘
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js
+- PostgreSQL database
+- Yarn
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+Clone the repository:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git clone https://github.com/jefersonpmatos/annualdiary.git
+cd annualdiary
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Install dependencies:
 
-## Deploy on Vercel
+```bash
+yarn install
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Create your environment file:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+cp .env.example .env
+```
+
+Configure your database connection in `.env`:
+
+```env
+DATABASE_URL="postgresql://user:password@localhost:5432/annualdiary"
+```
+
+Run the Prisma migrations:
+
+```bash
+yarn prisma migrate dev
+```
+
+Start the development server:
+
+```bash
+yarn dev
+```
+
+The application will be available at:
+
+```text
+http://localhost:3000
+```
+
+## 📸 Preview
+
+You can try the live application here:
+https://annualdiary.vercel.app
+
+## 📁 Project Structure
+
+```text
+annualdiary/
+├── app/            # Application routes and pages
+├── components/     # Reusable UI components
+├── hooks/          # Custom React hooks
+├── lib/            # Utilities and shared logic
+├── prisma/         # Database schema and migrations
+├── images/         # Project assets
+└── public/         # Static assets
+```
+
+## 📌 Project Status
+
+This is a personal project created to explore fullstack application architecture and experiment with different technical decisions in a controlled environment.
+
+## 📄 License
+
+This project is available under the MIT License.
